@@ -1,0 +1,133 @@
+mongoose.connect()
+
+a mongoose schema defines the structure(data type) of a document
+default values and validators
+
+a mongoose model is a wrapper for a mongoose schema.this model is used to perform crud operations
+
+const schema=new mongoose.Schema(
+    {
+        _id:
+        {type:String,required:true},
+        name:String,
+        class:Number
+    }
+)
+
+// collection creation
+const Model=new mongoose.model("Proplayer",schema)
+
+
+//inserting a document into collections
+const react=new Model
+(
+    {
+        _id:"dnaish",
+        name:"prop",
+        class:1212
+    }
+)
+react.save()
+
+
+To use our schema definition, we need to convert our blogSchema into a Model we can work with. To do so, we pass it into mongoose.model(modelName, schema)
+
+//Comparision query operators
+$ - this dollar represents an operator in mongodb
+
+MongoDB Query Operators
+$eq : Values are equal.
+$ne : Values are not equal.
+$gt : Value is greater than another value.
+$gte : Value is greater than or equal to another value.
+$lt : Value is less than another value.
+$lte : Value is less than or equal to another value.
+$in : Value is matched within an array.
+
+//Logical query operators
+
+$and
+Joins query clauses with a logical AND returns all documents that match the conditions of both clauses.
+$not
+Inverts the effect of a query expression and returns documents that do not match the query expression.
+$nor
+Joins query clauses with a logical NOR returns all documents that fail to match both clauses.
+$or
+Joins query clauses with a logical OR returns all documents that match the conditions of either clause.
+
+example-Proplayer.find({$and:[{class:1212},{name:"prop"}]})
+
+//Count query and sorting
+.countDocuments() - to count the documents
+
+.sort() - to sort the documents
+
+
+//Updating the document
+
+update operators-:
+
+$currentDate	Sets the value of a field to current date, either as a Date or a Timestamp.
+$inc	Increments the value of the field by the specified amount.
+$min	Only updates the field if the specified value is less than the existing field value.
+$max	Only updates the field if the specified value is greater than the existing field value.
+$mul	Multiplies the value of the field by the specified amount.
+$rename	Renames a field.
+$set	Sets the value of a field in a document.
+$setOnInsert	Sets the value of a field if an update results in an insert of a document. Has no effect on update operations that modify existing documents.
+$unset	Removes the specified field from a document.
+
+//deleting can be performed same as update methods
+
+//mongoose built in validation
+
+The unique Option is Not a Validator
+unique:true yet it acts as a validator
+
+some of the validators are:
+lowercase
+uppercase
+trim - boolean
+match
+minlength
+mazlength
+enum - checks that the value must be same as in given array
+enum:["f","a"] - if the value be diff from a or f then it will throw an error
+
+//custom validation
+validate(val)
+{
+    if(val<0)
+    {
+    console.log("error")
+    }
+    else
+    {
+    console.log("good")
+    }
+    }
+
+//using npm validator package
+validator(val){if(!validator.isEmail(val)){throw new Error("invalid")} }
+
+//Rest API POSTMAN
+
+POSTMAN is a tool by which we can create and test our api tool
+it is a google chrome app for interacting with http apis
+works on backend.
+
+//REST API
+Representational State Transfer Application Programming Interface.
+
+API is a software that allows 2 applications to communicate with each other over the internet by various devices
+A rest is a architecture style for API that uses HTTP request to access and use data
+http://danish/api/users - api is mandatory and users is the endpoint at where we are fetching the data
+
+So with the use of restful api we can perform crud operations
+C-CREATE-POST
+R-READ-GET
+U-UPDATE-PUT/PATCH
+D-DELETE-DELETE
+
+difference between put and patch is that put updates the whole document whereas patch only update the required ammount of data
+

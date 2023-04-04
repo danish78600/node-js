@@ -1,0 +1,206 @@
+                   CH-1 INTRO TO NODE JS
+
+node js - javascript running on server
+built on chrome v8 engine
+
+when to use node js:
+input output bound as node js is single threaded. works on non blocking model
+real time chat applications 
+data streaming applications in which there is not any ending . FOR EXAMPLE-netflix
+
+                   CH-2 INSTALLING NODE JS
+
+npm is an open source library
+
+we can run node js by writing
+node filename 
+in the vs code terminal
+
+                   CH-3 PREQUISITES FOR NODE JS
+
+JAVASCRIPT
+ES5 AND ES6
+CLIENT SERVER MODEL
+ 
+                   CH-4 REPL
+
+R-reads user input , parses the input into javascript data structure and stores it into memory
+E-evaluates
+P-prints the result
+L-loops
+ 
+REPL is mainly used in debug of javascript code and 
+to perform experiments with node js
+
+TO enter into repl we simply have to use a command which is node
+
+In repl we can perform the following tasks:-
+1. js expression like 3+3=6
+2. js variables
+3. multiline code like loops
+4. use  _ to get the last result
+5. we can use editor mode by .editor command
+ 
+
+                      CH-5 NODE JS MODULES
+
+same as js libraries
+these are build in we donot have to downlaod them
+
+node js has a set of build in modules which we can use
+
+node js has additional data type buffer
+which is used to store binary data
+while reading a file or by recieving packets over the network
+
+                       CH-6 PROJECT
+
+                       CH-7 ASYNCHRONUS CORE MODULE
+
+assync works on non blocking model it can serve multiple requests 
+as it runs parralel
+
+function passing as an arguement is a callback
+which means that after doing its own tasks then call me
+callback tells us whether the operation is performed successfully or not
+
+                       CH-8 SYNCHRONUS VS ASYNC
+
+utf-8 is for not getting the buffer data.
+
+synchronus means the line which is in series
+will execute serial wise 
+
+But asynchronus means that if an event takes long time
+then execute the others which are in queue
+
+                      CH-9  PROJECT
+                    
+                       CH-10 NODE JS OS MODULE
+
+                        CH-11 PATH MODULE
+              
+                          CH-12 EXPORTING AND CREATING MODULES
+                       
+       For exporting  a function or variable
+we must use - module.exports=functionname
+
+and in the file in which we have to import it
+we must write-
+require('filename')
+
+BUT for exporting 2 thinks we can use
+module.exports.add=add
+module.exports.sub=sub
+
+                            CH-13 USING NPM
+
+npm is prewritten code which is very usable
+
+npm init is used to setup  a package which must
+contain all the dependies or libraries which we have downloaded
+in package.json
+
+npm i chalk - this command will install the chalk module
+
+package-lock.json - it contains more information about a particular package
+
+node module folder contains the code for our dependies
+
+
+                            CH-14 NODEMON
+
+local packages are used in a particular file or folder but global folders
+can be used in any drive or any folder
+
+nodemon - it is a tool which helps the node js based applications
+to restart automatically when a change is detected
+
+nodemon filename - this command is used to run a file using nodemon
+
+ctrl+c is used to exit from nodemon
+
+                              CH-15 MODULE WRAPPER FUNCTION
+
+in node js all the indivisual files are called modules
+
+whenever we write code in node js it wraps all the code in a module wrapper function
+and it makes all the variables,functions private
+
+module,exports,require,_filename,_dirname -  all these are not global but they are local for each of the node js files
+behind the scenes thats why we can use these 5 tools easily.
+
+                               CH-16 CREATING OUR WEB SERVER
+
+for creating a web server in node js we dont need any 3rd party apps as in php xampp
+
+http.createServer() method includes request and response parameters supplied by node js
+
+
+server.listen() method gives response only when a requet comes.
+
+                               CH-17 NODE JS ROUTING
+
+ req.url - it will prints the request by user in the console.
+
+ res.end() - for sending response
+
+res.writeHead(404) - to return the status code for a particular request
+
+
+                                  CH-17 JSON FOR NODE JS
+
+JSON IS JAVASCRIPT OBJECT NOTATION.
+it is a light weight format for storing and sending data
+it is mainly used when data is used from the server
+
+for converting an object into json file use -
+JSON.stringify(object)
+
+for converting a json file to object use-
+JSON.parse(object)
+
+
+                                   CH-18 CREATING A SIMPLE (API) IN NODE JS
+
+API allows 2 software components to communicate with each other
+API is like a service by which we can request data
+ 
+                                   CH-19 EVENT MODULE
+
+in node js we have a module name events in which we can create listen and fire our own events 
+in this we have the power to create and use our own events.
+
+
+event.on() - takes 2 arguements 1st the event if is called the pass the 2nd callback function
+event.emit("hlo") - fires an event
+
+                                          CH-20 STREAMS AND BUFFERS
+
+  Streams are objects that let you read data from a source or write data to a destination in continuous fashion. 
+streaming means live watching.it will provide us data one by one
+
+Types of streams:-
+readable
+writable
+duplex
+transform
+
+Each type of Stream is an EventEmitter instance and throws several events at different instance of times. For example, some of the commonly used events are −
+data
+end 
+error
+finish
+
+streaming is same as we are watching live match
+
+for streaming we has to follow the following methods 
+reading a stream
+creating a readable stream 
+handling stream events
+
+                                                             CH-21 STREAM PIPES
+
+it is used to read and write data collectively
+
+

@@ -1,0 +1,68 @@
+             EXPRESS JS
+
+most popular framework of node js
+web application framework
+used to build websites and backend
+
+express is used to do the work fastly which
+we can do with node js
+
+
+mkdir myapp
+npm init
+npm i express
+
+express is mainly used for api
+
+get - to get the data
+post - to create
+put - to update the data
+delete-delete
+
+creating a server is easy in express js
+
+express js is good for routing
+
+app.get('/',(req,res)=>
+{
+    res.send("response")
+})
+
+the callback function takes 2 parameters
+first will be the request by the user
+then the response by the server
+
+how to send html and json data as response
+
+we can use html tags inside res.send()
+
+we can pass an object or array inside res.send()
+to response a json file
+
+res.json() also response a data into json file
+it is same as res.send() but it has the benifit that it convert non objects to json
+
+         HOW TO SERVE STATIC FILES
+
+A request handler with access to the application's request-response cycle is known as middleware. 
+
+in express js express.static is used as middleware
+
+app.use(express.static(__dirname+'/public'))
+
+template engines - used for creating and using dynamic websites
+for using it there are different extensions
+pug
+hhb
+ejs
+
+npm i hhb
+
+limitations :-
+ you must have a folder named views for using hhb
+but we can change this limitatiob by app.set('views','new folder name')
+
+res.render() - in this we have to pass a file not the data
+
+partials - it is a folder in which we stores the files that are reused many times in future 
+and when we wants them then we call them there.

@@ -1,0 +1,117 @@
+mongo db is a no sql database
+it works with non relational management system
+it stores data in form of documents
+mongo db uses bson which is similar to json
+
+Bson was developed to cure the following limitations-
+json is text based and text parsing is slow
+json readable format is far from space effecient
+json only supports a limited no of data types
+
+bson uses binary representation
+BSON-BINARY JSON
+bson is use for storage of data while json
+is used for transmision of data
+A collection is a grouping of MongoDB documents
+
+               MONGO DB COMMANDS
+
+show dbs - to show all databases
+
+use databasename - to create database
+if it is not present and it will switch to it 
+if it is present already
+
+db- to view current database
+
+db.dropDatabase()- deletes the database
+
+show collections - to show all collections
+
+db.createCollection()
+
+db.collectionname.drop() - to delete a particular collection
+
+Insert One Row
+
+db.comments.insert({
+    'name': 'Harry',
+    'lang': 'JavaScript',
+    'member_since': 5
+ })
+Insert many Rows
+
+db.comments.insertMany([{
+    'name': 'Harry',
+    'lang': 'JavaScript',
+    'member_since': 5
+    }, 
+    {'name': 'Rohan',
+    'lang': 'Python',
+    'member_since': 3
+    },
+    {'name': 'Lovish',
+    'lang': 'Java',
+    'member_since': 4
+}])
+
+Search in a MongoDb Database
+
+db.comments.find({lang:'Python'})
+Limit the number of rows in output
+db.comments.find().limit(2)
+
+Count the number of rows in the output
+db.comments.find().count()
+
+Update a row
+db.comments.updateOne({name: 'Shubham'},
+{$set: {'name': 'Harry',
+    'lang': 'JavaScript',
+    'member_since': 51
+}}, {upsert: true})
+
+Mongodb Increment Operator
+db.comments.update({name: 'Rohan'},
+{$inc:{
+    member_since: 2
+}})
+
+Mongodb Rename Operator
+db.comments.update({name: 'Rohan'},
+{$rename:{
+    member_since: 'member'
+}})
+
+Delete Row 
+db.comments.remove({name: 'Harry'})
+
+Less than/Greater than/ Less than or Eq/Greater than or Eq
+db.comments.find({member_since: {$lt: 90}})
+db.comments.find({member_since: {$lte: 90}})
+db.comments.find({member_since: {$gt: 90}})
+db.comments.find({member_since: {$gte: 90}})
+
+db.collection.find(query,projection:1) - projection means what to show or what not if we will use 0 then it will show 
+all fields instead of this
+
+db.collactionname.find()- to check documents in a particular collactions
+
+db.collactionname.find({name:"danish"})-it will provide that element in which the name is danish
+
+.pretty()- shows the file in a formatted type
+
+.limit(1) - means that show the 1st document in all the matching documents
+
+the .limit(1) will be same as db.collectionname.findOne()
+
+.skip(1)- it will skip the 1st document in all the matching documents
+
+db.comments.updateOne(filter,update)
+db.comments.updateMany(filter,update)
+
+$set operator updates the value of a specific field by a specified value
+
+db.collection.deleteMany(filter)
+
+
